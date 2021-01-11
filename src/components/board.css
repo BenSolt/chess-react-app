@@ -1,7 +1,10 @@
 .board {
-    width: 700px;
+    /* width: 700px; */
+    /* height: 100%; */
+    width: 600px;
     height: 100%;
-  
+    
+
     margin: auto;
     border-top: solid black 2px;
     border-bottom: solid black 2px;
