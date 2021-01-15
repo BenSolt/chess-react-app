@@ -12,6 +12,8 @@ for (let col = 0; col < numOfCols; col++) {
   allBlackPieces.push(new Piece.Pawn(1, 1, col));
 }
 
+
+
 // fill in back row
 allWhitePieces.push(new Piece.Rook(0, 7, 0));
 allWhitePieces.push(new Piece.Knight(0, 7, 1));

@@ -7,7 +7,7 @@ function RemovedPieces(props) {
   const pieces = [];
   for (let index in props.pieces) {
     pieces.push(
-      <img className="removedPiece" src={props.pieces[index].imgURL} alt="" />
+      <img className="removedPiece" src={props.pieces[index].imgURL} key={props.pieces[index].imgURL} alt="piece" />
     );
   }
   const className = "removedPieces " + props.className;

@@ -15,7 +15,6 @@ import KingImg_W from "./Images/ChessKing_W.png"
 
 const BoardHelperFuncs = require("./boardHelperFunctions.js");
 
-
 class Piece {
   constructor(color, imgURL, row, col) {
     this.color = color;
@@ -69,7 +68,7 @@ class Piece {
         board,
         king
       );
-      console.log(playerPiece, possibleMovesByPiece);
+      // console.log(playerPiece, possibleMovesByPiece);
       possibleMoves = possibleMoves.concat(possibleMovesByPiece);
     }
 
@@ -242,14 +241,10 @@ class King extends Piece {
     // white img
     if (color === 0) {
       imgURL = KingImg_W;
-      // imgURL =
-      //   "https://upload.wikimedia.org/wikipedia/commons/4/42/Chess_klt45.svg";
     }
     // black img
     else {
       imgURL = KingImg;
-      // imgURL =
-      //   "https://upload.wikimedia.org/wikipedia/commons/f/f0/Chess_kdt45.svg";
     }
 
     super(color, imgURL, row, col);
@@ -292,14 +287,10 @@ class Queen extends Piece {
     // white img
     if (color === 0) {
       imgURL = QueenImg_W
-      // imgURL =
-      //   "https://upload.wikimedia.org/wikipedia/commons/1/15/Chess_qlt45.svg";
     }
     // black img
     else {
       imgURL = QueenImg
-      // imgURL =
-      //   "https://upload.wikimedia.org/wikipedia/commons/4/47/Chess_qdt45.svg";
     }
 
     super(color, imgURL, row, col);
@@ -344,14 +335,10 @@ class Bishop extends Piece {
     // white img
     if (color === 0) {
       imgURL = BishopImg_W;
-      // imgURL =
-      //   "https://upload.wikimedia.org/wikipedia/commons/b/b1/Chess_blt45.svg ";
     }
     // black img
     else {
       imgURL = BishopImg;
-      // imgURL =
-      //   "https://upload.wikimedia.org/wikipedia/commons/9/98/Chess_bdt45.svg";
     }
 
     super(color, imgURL, row, col);
@@ -391,14 +378,10 @@ class Knight extends Piece {
     // white img
     if (color === 0) {
       imgURL = HorseImg_W;
-      // imgURL =
-      //   "https://upload.wikimedia.org/wikipedia/commons/7/70/Chess_nlt45.svg";
     }
     // black img
     else {
       imgURL = HorseImg;
-      // imgURL =
-      //   "https://upload.wikimedia.org/wikipedia/commons/e/ef/Chess_ndt45.svg";
     }
 
     super(color, imgURL, row, col);
@@ -437,14 +420,10 @@ class Rook extends Piece {
     // white img
     if (color === 0) {
       imgURL = RookImg_W;
-      // imgURL =
-      //   "https://upload.wikimedia.org/wikipedia/commons/7/72/Chess_rlt45.svg";
     }
     // black img
     else {
       imgURL = RookImg;
-      // imgURL =
-      //   "https://upload.wikimedia.org/wikipedia/commons/f/ff/Chess_rdt45.svg";
     }
 
     super(color, imgURL, row, col);
@@ -485,15 +464,10 @@ class Pawn extends Piece {
     // white img
     if (color === 0) {
       imgURL=PawnImg_W;
-
-      // imgURL =
-        // "https://upload.wikimedia.org/wikipedia/commons/4/45/Chess_plt45.svg";
     }
     // black img
     else {
       imgURL=PawnImg;
-      // imgURL =
-      //   "https://upload.wikimedia.org/wikipedia/commons/c/c7/Chess_pdt45.svg";
     }
 
     super(color, imgURL, row, col);
@@ -509,6 +483,7 @@ class Pawn extends Piece {
     const currentRow = this.row;
     const currentCol = this.col;
 
+
     const possibleMoves = [];
 
     // direction for white
@@ -519,7 +494,10 @@ class Pawn extends Piece {
         !this.enemyAtIndex(board, currentRow - 1, currentCol)
       ) {
         possibleMoves.push([currentRow - 1, currentCol]);
+        
+        // console.log("row", currentRow)
       }
+      
       // 2 units forward
       if (
         this.indexInRange(currentRow - 2, currentCol) &&
@@ -541,7 +519,21 @@ class Pawn extends Piece {
       ) {
         possibleMoves.push([currentRow - 1, currentCol - 1]);
       }
+
+
+
+      // MAKE QUEEN?
+
+      // const allWhitePieces = [];
+      // if (currentRow == 5) {
+      //   console.log('QUEEN', currentRow)
+        // this.enemyAtIndex(board, currentRow - 1, currentCol)
+        // allWhitePieces.push(new Queen(0, 4, 0));
+      // }
+
     }
+
+
     // direction for black
     else {
       // 1 unit forward

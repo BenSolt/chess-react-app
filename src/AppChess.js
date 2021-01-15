@@ -11,7 +11,7 @@ const ChessPieces = require("./chessPieces.js");
 const PieceLogic = require("./chessPieceLogic.js");
 const BoardHelperFuncs = require("./boardHelperFunctions.js");
 
-class ChessGame extends React.Component {
+class ChessGame1 extends React.Component {
   constructor(props) {
     super(props);
     // dimensions of chess board
@@ -246,11 +246,6 @@ class ChessGame extends React.Component {
             possibleMoves={this.state.possibleMoves}
           />
 
-          {/* <Board2
-            board={board}
-            squareClicked={(row, col) => this.squareClicked(row, col)}
-            possibleMoves={this.state.possibleMoves}
-          /> */}
           <RemovedPieces
             className="blackRemovedPieces"
             pieces={this.state.piecesOffPlay[1]}
@@ -261,7 +256,7 @@ class ChessGame extends React.Component {
   }
 }
 
-export default ChessGame;
+export default ChessGame1;
 
 // const rootElement = document.getElementById("root");
 // ReactDOM.render(<Game />, rootElement);
