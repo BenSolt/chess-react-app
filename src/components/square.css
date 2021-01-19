@@ -15,7 +15,8 @@
     background-color: rgb(232, 235, 239);
 }
 .dark {
-    background-color: rgb(125, 135, 150);
+    background-color: rgb(192, 125, 37);
+    /* background-color: rgb(125, 135, 150); */
 }
   
   /* code to highlight squares to where moves are possible*/

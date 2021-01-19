@@ -4,7 +4,7 @@ import './index.css';
 // import App from './App';
 import AppChess from './AppChess';
 // import AppTest from './AppTest';
-
+// import AppChessGame from './components2/AppChessGame';
 
 import * as serviceWorker from './serviceWorker';
 

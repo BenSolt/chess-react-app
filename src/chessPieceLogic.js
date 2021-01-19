@@ -525,6 +525,7 @@ class Pawn extends Piece {
       // MAKE QUEEN?
       const spawnQueen = [];
       const BoardHelperFuncs = require("./boardHelperFunctions.js");
+      const ChessPieces = require("./chessPieces.js");
       if (
         // currentRow === 4) 
        
@@ -533,10 +534,10 @@ class Pawn extends Piece {
         currentRow === 4
       ) {
         console.log('QUEEN', currentRow)
-        possibleMoves.push([currentRow - 2, currentCol - 2]);
 
-        // BoardHelperFuncs.getStartBoard(  
-        // spawnQueen.push(new Queen(0, 4, 3)));
+        
+        BoardHelperFuncs.getStartBoard(  
+        spawnQueen.push(new Queen(0, 4, 3)));
       }
 
     }

@@ -46,6 +46,9 @@ class ChessGame1 extends React.Component {
       // keeps track of all pieces off play (index 0 for white, index 1 for black)
       piecesOffPlay: [[], []],
 
+      add: 0,
+     
+
     };
   }
 
@@ -112,12 +115,23 @@ class ChessGame1 extends React.Component {
         if (BoardHelperFuncs.moveMatchesIndex(move, row, col)) {
           // updated version of board
           let newBoard = BoardHelperFuncs.copyOfBoard(board);
+         
           newBoard = this.updateBoard(
             newBoard,
             this.state.selectedPieceRow,
             this.state.selectedPieceCol,
             row,
-            col
+            col,
+            //////////////////////////////////////////
+            //////////////////////////////////////////
+            //////////////////////////////////////////
+            //////////////////////////////////////////
+            this.setState({ add: this.state.add + 1}),
+            
+            /////////////////////////////////////////
+            //////////////////////////////////////////
+            //////////////////////////////////////////
+            //////////////////////////////////////////
           );
           // updated version of history
           const history = this.updateHistory(newBoard);
@@ -232,15 +246,24 @@ class ChessGame1 extends React.Component {
     this.setState({ winner: winner });
   }
 
-  
-  Qu() {
-    console.log('add')
-    BoardHelperFuncs.getStartBoard(
-    ChessPieces.createQueen)
-  }
-    
 
-   
+  addQueen = () => {
+
+    console.log('add')
+    this.setState({ add: this.state.add + 1})
+
+    BoardHelperFuncs.getStartBoard(
+    ChessPieces.createQueen
+    )
+
+    const board = this.state.history[this.state.historyIndex].board;
+    this.removeOpponentPiece(board, 7, 0)
+    // this.state.piecesInPlay[0],
+
+  }
+
+
+
 
 
   render() {
@@ -251,15 +274,17 @@ class ChessGame1 extends React.Component {
       <div className="game">
         <Title turnColor={this.state.turnColor} winner={this.state.winner} />
         <div className="board-container">
-          
+
           <RemovedPieces
             className="whiteRemovedPieces"
             pieces={this.state.piecesOffPlay[0]}
           />
 
-          <button onClick={this.Qu}>CLICK</button> 
-
-
+          <div>
+            <button onClick={this.addQueen}>CLICK</button>
+            <p>{this.state.add}</p>
+          </div>
+          
           <Board2
             board={board}
             squareClicked={(row, col) => this.squareClicked(row, col)}

@@ -29,7 +29,7 @@ function AppTest() {
 
             <div className='grid'>
                 <div className='grid2'>
-                    <p>{add}</p>
+                    <p>Number {add}</p>
                 </div>
                 {board.map((e, j) => {
                     return (
