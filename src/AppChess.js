@@ -17,14 +17,17 @@ class ChessGame1 extends React.Component {
     // dimensions of chess board
     this.numOfRows = 8;
     this.numOfCols = 8;
+
     this.state = {
       // array of all board states at a certain period of game
       history: [
         {
           board: BoardHelperFuncs.getStartBoard(
             ChessPieces.allWhitePieces,
-            ChessPieces.allBlackPieces
-          )
+            ChessPieces.allBlackPieces,
+            // ChessPieces.createQueen
+          ),
+
         }
       ],
       // index for which board state of history should be displayed
@@ -41,7 +44,8 @@ class ChessGame1 extends React.Component {
       // keeps track of all piecs in play (index 0 for white, index 1 for black)
       piecesInPlay: [ChessPieces.allWhitePieces, ChessPieces.allBlackPieces],
       // keeps track of all pieces off play (index 0 for white, index 1 for black)
-      piecesOffPlay: [[], []]
+      piecesOffPlay: [[], []],
+
     };
   }
 
@@ -228,6 +232,17 @@ class ChessGame1 extends React.Component {
     this.setState({ winner: winner });
   }
 
+  
+  Qu() {
+    console.log('add')
+    BoardHelperFuncs.getStartBoard(
+    ChessPieces.createQueen)
+  }
+    
+
+   
+
+
   render() {
     // get current board state which should be displayed
     const board = this.state.history[this.state.historyIndex].board;
@@ -236,10 +251,15 @@ class ChessGame1 extends React.Component {
       <div className="game">
         <Title turnColor={this.state.turnColor} winner={this.state.winner} />
         <div className="board-container">
+          
           <RemovedPieces
             className="whiteRemovedPieces"
             pieces={this.state.piecesOffPlay[0]}
           />
+
+          <button onClick={this.Qu}>CLICK</button> 
+
+
           <Board2
             board={board}
             squareClicked={(row, col) => this.squareClicked(row, col)}

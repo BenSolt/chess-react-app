@@ -523,13 +523,21 @@ class Pawn extends Piece {
 
 
       // MAKE QUEEN?
+      const spawnQueen = [];
+      const BoardHelperFuncs = require("./boardHelperFunctions.js");
+      if (
+        // currentRow === 4) 
+       
+        this.indexInRange(currentRow - 1, currentCol - 1) &&
+        this.enemyAtIndex(board, currentRow - 1, currentCol - 1) &&
+        currentRow === 4
+      ) {
+        console.log('QUEEN', currentRow)
+        possibleMoves.push([currentRow - 2, currentCol - 2]);
 
-      // const allWhitePieces = [];
-      // if (currentRow == 5) {
-      //   console.log('QUEEN', currentRow)
-        // this.enemyAtIndex(board, currentRow - 1, currentCol)
-        // allWhitePieces.push(new Queen(0, 4, 0));
-      // }
+        // BoardHelperFuncs.getStartBoard(  
+        // spawnQueen.push(new Queen(0, 4, 3)));
+      }
 
     }
 

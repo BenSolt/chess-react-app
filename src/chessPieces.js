@@ -6,13 +6,17 @@ const numOfCols = 8;
 const allWhitePieces = [];
 const allBlackPieces = [];
 
+const createQueen = [];
+
+//////////////// TEST
+createQueen.push(new Piece.Queen(0, 4, 3));
+///////////////////////////////
+
 // fill in pawns
 for (let col = 0; col < numOfCols; col++) {
   allWhitePieces.push(new Piece.Pawn(0, 6, col));
   allBlackPieces.push(new Piece.Pawn(1, 1, col));
 }
-
-
 
 // fill in back row
 allWhitePieces.push(new Piece.Rook(0, 7, 0));
@@ -39,4 +43,4 @@ allBlackPieces.push(new Piece.Rook(1, 0, 7));
 
 const kings = [whiteKing, blackKing];
 
-module.exports = { allWhitePieces, allBlackPieces, kings };
+module.exports = { allWhitePieces, allBlackPieces, kings, createQueen };

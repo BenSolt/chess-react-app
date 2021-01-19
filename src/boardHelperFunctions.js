@@ -26,7 +26,7 @@ function emptyBoard(numOfRows, numOfCols) {
 }
 
 // helper function to return starting chess board
-function getStartBoard(allWhitePieces, allBlackPieces) {
+function getStartBoard(allWhitePieces, allBlackPieces, createQueen) {
   let board = emptyBoard(numOfRows, numOfCols);
 
   // fill white
@@ -44,8 +44,20 @@ function getStartBoard(allWhitePieces, allBlackPieces) {
     const col = piece.col;
     board[row][col] = piece;
   }
+
+  //QUEEN
+  for (let index in createQueen) {
+    const piece = createQueen[index];
+    const row = piece.row;
+    const col = piece.col;
+    board[row][col] = piece;
+  }
+
   return board;
 }
+
+
+
 
 // helper function to show if move matches given index
 function moveMatchesIndex(move, row, col) {

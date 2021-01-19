@@ -1,0 +1,33 @@
+.container{
+  border: 2px solid red;
+  /* display: flex; */
+}
+
+.grid {
+    border: 2px solid blue;
+    justify-content: center;
+    /* justify-content: space-evenly; */
+    display: flex;
+}
+.grid2 {
+  width: 100px;
+  border: 2px solid red;
+}
+
+
+.light {
+    background-color: rgb(204, 177, 127);
+  }
+.dark {
+    background-color: rgb(112, 94, 61);
+  }
+
+.square {
+    display: flex;
+    /* background: gray; */
+    border: 2px solid black;
+    width: 64px;
+    height: 64px;
+    justify-content: center;
+}
+
