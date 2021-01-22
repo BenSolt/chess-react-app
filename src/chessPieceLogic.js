@@ -527,8 +527,6 @@ class Pawn extends Piece {
       const BoardHelperFuncs = require("./boardHelperFunctions.js");
       const ChessPieces = require("./chessPieces.js");
       if (
-        // currentRow === 4) 
-       
         this.indexInRange(currentRow - 1, currentCol - 1) &&
         this.enemyAtIndex(board, currentRow - 1, currentCol - 1) &&
         currentRow === 4

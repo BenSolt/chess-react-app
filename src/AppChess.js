@@ -160,12 +160,13 @@ class ChessGame1 extends React.Component {
   updateBoard(board, oldRow, oldCol, newRow, newCol) {
     // piece to move
     const pieceToMove = board[oldRow][oldCol];
-
+    
     this.removeOpponentPiece(board, newRow, newCol);
 
     // transfer piece
     board[newRow][newCol] = pieceToMove;
     board[oldRow][oldCol] = null;
+    
 
     // update pieceToMove's attributes
     pieceToMove.updateIndex(newRow, newCol);
@@ -188,7 +189,14 @@ class ChessGame1 extends React.Component {
     // update opponent pieces in play
     piecesInPlay[opponentPieceColor] = piecesInPlay[opponentPieceColor].filter(
       function (piece) {
-        return piece !== opponentPiece;
+        return (piece !== opponentPiece,
+        /////////////////////////////////
+        /////////////////////////////////
+        /////////////////////////////////
+        console.log('remove'))
+        /////////////////////////////////
+        /////////////////////////////////
+        /////////////////////////////////
       }
     );
 
@@ -252,9 +260,9 @@ class ChessGame1 extends React.Component {
     console.log('add')
     this.setState({ add: this.state.add + 1})
 
-    BoardHelperFuncs.getStartBoard(
-    ChessPieces.createQueen
-    )
+    // BoardHelperFuncs.getStartBoard(
+    // ChessPieces.createQueen
+    // )
 
     const board = this.state.history[this.state.historyIndex].board;
     this.removeOpponentPiece(board, 7, 0)

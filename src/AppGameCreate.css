@@ -1,0 +1,113 @@
+body {
+    font: 14px "Century Gothic", Futura, sans-serif;
+    /* margin: 20px; */
+    display: flex;
+    justify-content: center;
+  }
+  
+  ol,
+  ul {
+    padding-left: 30px;
+  }
+  
+  .container {
+    display: flex;
+    border: 2px solid red;
+    padding: 25px 100px;
+  }
+
+  .text{
+    width: 40px;
+    font-size: 2rem; 
+  }
+  
+
+
+  .board-row:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+  
+  .status {
+    margin-bottom: 10px;
+  }
+  .light {
+    background-color: rgb(204, 177, 127);
+  }
+  .dark {
+    background-color: rgb(112, 94, 61);
+  }
+  
+  .brd {
+    background-color: rgb(78, 67, 44);
+  }
+  .square {
+    /* background: #fff; */
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 34px;
+    height: 34px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 34px;
+    /* border: 1px solid black; */
+  }
+  
+  .square:hover {
+    background:rgb(58, 102, 117);
+    /* background: #6363630a;
+    opacity: 25%; */
+  }
+  
+  /* .square:focus {
+    outline: none;
+  } */
+
+  .dot {
+    background-color: rgba(144, 240, 0, 0.7);
+    border-radius: 100%;
+    height: 30px;
+    width: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  
+  /* .kbd-navigation .square:focus {
+    background: #ddd;
+  } */
+  
+  .game {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .game-info {
+    margin-left: 20px;
+  }
+  
+  /* /////////////////// */
+  .pawnBlack {
+    background-color: rgb(68, 68, 68);
+    width: 26px;
+    height: 26px;
+    margin: 4px;
+  }
+  
+  .pawnWhite {
+    background-color: rgb(197, 197, 197);
+    width: 26px;
+    height: 26px;
+    margin: 4px;
+  }
+  
+  .QueenWhite {
+    background-color: rgb(197, 197, 197);
+    width: 26px;
+    height: 26px;
+    margin: 4px;
+  }
+  
