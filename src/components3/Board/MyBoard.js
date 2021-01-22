@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from "react";
-import Square from "./Square";
+import MySquare from "./MySquare";
 import { pieces } from "./defs";
 import { piece } from "./img/pieces";
 
 
-function Board(props) {
+function MyBoard(props) {
 
   const [addW, setAddW] = useState(0);
   const [addB, setAddB] = useState(0);
 
-  var playboard = [
-    0, 0, 0, 0, 0, 0, 0, 0,
+  var playboard2 = [
+    0, 0, 0, 0, 0, 0,
   ]
 
 
   const [tempPiece, setTempPiece] = useState([]);
   const [turn, setTurn] = useState("White");
   const [selected, setSelected] = useState([]);
-  const [predictBoard, setPredictBoard] = useState(
-    playboard.fill(playboard.fill("")).map((e, i) => {
+  const [predictBoard2, setPredictBoard2] = useState(
+    playboard2.fill(playboard2.fill("")).map((e, i) => {
       // new Array(8).fill(new Array(8).fill("")).map((e, i) => {
       return e.map((a, j) => {
         return "o";
@@ -27,22 +27,19 @@ function Board(props) {
   );
 
 
-  const [gameBoard, setGameBoard] = useState(
-    playboard.fill(playboard.fill("")).map((e, i) => {
+  const [gameBoard2, setGameBoard2] = useState(
+    playboard2.fill(playboard2.fill("")).map((e, i) => {
       return e.map((a, j) => {
         if (i === 0) {
-          return (a = pieces.b[0][0][j]);
-        } else if (i === 1) {
-          return (a = pieces.b[1][0][j]);
-          // } else if (i === 2) {
-          //   return (a = pieces.bq[1][0][j]);
-        } else if (i === 6) {
-          return (a = pieces.w[1][0][j]);
-        } else if (i === 7) {
-          return (a = pieces.w[0][0][j]);
+          return (a = pieces.bp[1][0][j]);
+        // } else if (i === 1) {
+        //   return (a = pieces.bp[1][0][j]);
 
-          // } else if (i === 4) {
-          //   return (a = pieces.wq[1][0][j]);
+        } else if (i === 5) {
+          return (a = pieces.wp[1][0][j]);
+        // } else if (i === 5) {
+        //   return (a = pieces.wp[0][0][j]);
+
         }
         return undefined;
       });
@@ -54,7 +51,7 @@ function Board(props) {
 
 
   const [createQueen, setCreateQueen] = useState(
-    playboard.fill(playboard.fill("")).map((e, i) => {
+    playboard2.fill(playboard2.fill("")).map((e, i) => {
       return e.map((a, j) => { 
         if (i === 4) {
           return (a = pieces.wq[1][0][j]);
@@ -67,56 +64,18 @@ function Board(props) {
   
   
 
-  // const [createQueen, setCreateQueen] = useState(
-  //   playboard.fill(playboard.fill("")).map((e, i) => {
-  //   // playboard.push(playboard.push("")).map((e,i) => {
-  //     return e.map((a, j) => {
-  //       if (i === 0) {
-  //       } else if (i === 3) {
-  //         return (a = pieces.bq[1][0][j]);
 
-  //       } else if (i === 4) {
-         
-  //         return (a = pieces.wq[1][0][j]);
-  //       }
-  //       return undefined;
-  //     });
-  //   })
-  // );
-
-
-  const initial = playboard.fill(playboard.fill("")).map((e, i) => {
+  const initial = playboard2.fill(playboard2.fill("")).map((e, i) => {
     return e.map((a, j) => {
       return "o";
     });
   });
 
 
-  const test = playboard.fill(playboard.fill("")).map((e, i) => {
-    return e.map((a, j) => {
-      // return "x";
-      return (a = pieces.wq[1][0][j]);
-    });
-  });
-
-
-  // const pceLoop = (e, j) => {
-  //   for (let i = 0; 0 < piece.length; i++) {
-  //     if (piece[i].id === e + j) {
-  //       return piece[i].src;
-  //     }
-  //   }
-  // };
-
-  // const move = (e) => {
-  //   e.target.style.transform = "translate(0,-150px)";
-  // };
-
-  // const pce = selected.length > 1 ? pceLoop(selected[3][0], selected[0]) : "";
   return (
     <div className='container'>
       <div className="board">
-        {gameBoard.map((e, i) => {
+        {gameBoard2.map((e, i) => {
           return (
             <div className="board-row" key={`row${i}`}>
               {e.map((a, j) => {
@@ -129,15 +88,15 @@ function Board(props) {
                     ? (type = "square light")
                     : (type = "square dark");
                 return (
-                  <Square
+                  <MySquare
                     key={`${i},${j}`}
                     type1={type}
                     selected={selected}
                     setSelected={setSelected}
-                    gameBoard={gameBoard}
-                    setGameBoard={setGameBoard}
-                    predictBoard={predictBoard}
-                    setPredictBoard={setPredictBoard}
+                    gameBoard2={gameBoard2}
+                    setGameBoard2={setGameBoard2}
+                    predictBoard2={predictBoard2}
+                    setPredictBoard2={setPredictBoard2}
                     initial={initial}
                     i={i}
                     j={j}
@@ -154,7 +113,6 @@ function Board(props) {
 
                     createQueen={createQueen}
                     setCreateQueen={setCreateQueen}
-                    test1={test}
 
                   />
                 );
@@ -171,4 +129,4 @@ function Board(props) {
   );
 };
 
-export default Board;
+export default MyBoard;

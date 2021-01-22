@@ -10,6 +10,9 @@ export const piece = [
     { id: "bb", src: "./img/ChessBishop.png" },
     { id: "bn", src: "./img/ChessHorse.png" },
     { id: "bk", src: "./img/ChessKing.png" },
-    { id: "bq", src: "./img/ChessQueen.png" }
+    { id: "bq", src: "./img/ChessQueen.png" },
+
+    {id: "bv", src: "./img/ChessUnit.png"},
+    {id: "WV", src: "./img/ChessUnit_W.png"}
   ];
   

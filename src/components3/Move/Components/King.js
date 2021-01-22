@@ -14,6 +14,9 @@ export const King = (e, i, j, temp, board) => {
       break;
     }
   }
+
+  ///////Diag Right White//////
+
   for (let t = e[1] - 1, r = e[2] + 1; t >= 0 && r <= 7; t--, r++) {
     if (!board[t][r]) {
       temp[t].splice(r, 1, "x");
@@ -25,6 +28,7 @@ export const King = (e, i, j, temp, board) => {
       break;
     }
   }
+
   for (let right = e[2] + 1; right <= 7; right++) {
     if (board[e[1]][right] === undefined) {
       temp[e[1]].splice(right, 1, "x");
@@ -36,6 +40,8 @@ export const King = (e, i, j, temp, board) => {
       break;
     }
   }
+
+    ///////Diagnal Right Black//////
   for (let b = e[1] + 1, r = e[2] + 1; b <= 7 && r <= 7; b++, r++) {
     if (!board[b][r]) {
       temp[b].splice(r, 1, "x");
@@ -47,6 +53,7 @@ export const King = (e, i, j, temp, board) => {
       break;
     }
   }
+
   for (let down = e[1] + 1; down <= 7; down++) {
     if (board[down][e[2]] === undefined) {
       temp[down].splice(e[2], 1, "x");
@@ -58,6 +65,8 @@ export const King = (e, i, j, temp, board) => {
       break;
     }
   }
+
+  ///////Diagnal Left Black//////
   for (let b = e[1] + 1, l = e[2] - 1; b <= 7 && l >= 0; b++, l--) {
     if (!board[b][l]) {
       temp[b].splice(l, 1, "x");
@@ -69,6 +78,7 @@ export const King = (e, i, j, temp, board) => {
       break;
     }
   }
+
   for (let left = e[2] - 1; left >= 0; left--) {
     if (board[e[1]][left] === undefined) {
       temp[e[1]].splice(left, 1, "x");
@@ -80,6 +90,8 @@ export const King = (e, i, j, temp, board) => {
       break;
     }
   }
+
+  ///////Diagnal Left White//////
 
   for (let t = e[1] - 1, l = e[2] - 1; t >= 0 && l >= 0; t--, l--) {
     if (!board[t][l]) {

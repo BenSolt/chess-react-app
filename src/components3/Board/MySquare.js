@@ -5,10 +5,10 @@ import { piece } from "./img/pieces";
 
 import { pieces } from "./defs";
 
-function Square(props) {
+function MySquare(props) {
 
   const prediction =
-    props.predictBoard[props.i][props.j] === "x" ? "predict" : "";
+    props.predictBoard2[props.i][props.j] === "x" ? "predict" : "";
 
   const color = props.element 
     ? props.element[0] === props.element.toUpperCase()
@@ -22,9 +22,9 @@ function Square(props) {
       : "";
 
   const empty = (e) => {
-    if (props.gameBoard[props.i][props.j] && color === props.turn) {
+    if (props.gameBoard2[props.i][props.j] && color === props.turn) {
       props.setSelected([
-        props.gameBoard[props.i][props.j],
+        props.gameBoard2[props.i][props.j],
         props.i,
         props.j,
         color,
@@ -34,7 +34,7 @@ function Square(props) {
 
       ]);
       props.setTempPiece([
-        props.gameBoard[props.i][props.j],
+        props.gameBoard2[props.i][props.j],
         props.i,
         props.j,
         color
@@ -45,13 +45,13 @@ function Square(props) {
 
 
       const tempPredict = props.initial.map((a) => [...a]);
-      props.setPredictBoard(
+      props.setPredictBoard2(
         Move(
-          [props.gameBoard[props.i][props.j], props.i, props.j, color],
+          [props.gameBoard2[props.i][props.j], props.i, props.j, color],
           props.i,
           props.j,
           tempPredict,
-          props.gameBoard
+          props.gameBoard2
         )
       );
     }
@@ -60,70 +60,59 @@ function Square(props) {
   const notEmpty = (e) => {
     if (props.selected[3] === color) {
       props.setSelected([
-        props.gameBoard[props.i][props.j],
+        props.gameBoard2[props.i][props.j],
         props.i,
         props.j,
         color
       ]);
       props.setTempPiece([
-        props.gameBoard[props.i][props.j],
+        props.gameBoard2[props.i][props.j],
         props.i,
         props.j,
         color
       ]);
       const tempPredict = props.initial.map((a) => [...a]);
-      props.setPredictBoard(
+      props.setPredictBoard2(
         Move(
-          [props.gameBoard[props.i][props.j], props.i, props.j, color],
+          [props.gameBoard2[props.i][props.j], props.i, props.j, color],
           props.i,
           props.j,
           tempPredict,
-          props.gameBoard,
+          props.gameBoard2,
         )
       );
     }
 
     if (
       compare(props.selected[0]) !==
-        compare(props.gameBoard[props.i][props.j]) &&
-      props.predictBoard[props.i][props.j] === "x"
+        compare(props.gameBoard2[props.i][props.j]) &&
+      props.predictBoard2[props.i][props.j] === "x"
     ) {
-      const tempBoard = props.gameBoard.map((a) => [...a]);
+      const tempBoard = props.gameBoard2.map((a) => [...a]);
       tempBoard[props.i].splice(props.j, 1, props.selected[0]);
       tempBoard[props.selected[1]].splice(props.selected[2], 1, undefined);
-      props.setGameBoard(tempBoard);
+      props.setGameBoard2(tempBoard);
       props.setSelected([]);
-      props.setPredictBoard(props.initial);
+      props.setPredictBoard2(props.initial);
       props.setTurn(props.turn === "White" ? "black" : "White");
     }
-    if (!props.gameBoard[props.i][props.j]) {
+    if (!props.gameBoard2[props.i][props.j]) {
       props.setSelected([]);
-      props.setPredictBoard(props.initial);
+      props.setPredictBoard2(props.initial);
 
       //MOVED TOO INDEX///////////////////////
       console.log("index Moved Too:",props.i)
 
-      // CREATE QUEEN///////////////////////////////////////////////
-      // 1. Piece === Pawn
-      // 2. Create Queen
-
-      // if(props.i === 4 && props.turn === "White"){
-      if(props.i === 4 && props.turn === "White" && pieces.w[1][0][props.j]) {        
+    
+      if(props.i === 0 && props.turn === "White" && pieces.w[1][0][props.j]) {        
         console.log('create Q White')
         console.log('pieces:', pieces.w[1][0][props.j])
         console.log('piece Q:',pieces.wq[0][0][props.j])
         console.log('element:', props.element)
         props.setAddW(props.addW + 1); 
-
-        // props.setGameBoard(props.test1)
-        // props.setGameBoard(props.createQueen)
-       
-        // props.playboard.push(0)
-        // props.setGameBoard(props.createQueen);
-        // props.element = pieces.wq[1][0][props.j]
       }
 
-      if(props.i === 3 && props.turn !== "White"){
+      if(props.i === 5 && props.turn !== "White"){
         console.log('create Q Black')
         props.setAddB(props.addB + 1);
       }
@@ -176,4 +165,4 @@ function Square(props) {
   );
 };
 
-export default Square;
+export default MySquare;
