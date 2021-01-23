@@ -32,12 +32,15 @@ function MyBoard(props) {
       return e.map((a, j) => {
         if (i === 0) {
           return (a = pieces.bp[0][0][j]);
+        
+        // PAWN
         } else if (i === 1) {
           return (a = pieces.bp[1][0][j]);
-          // } else if (i === 2) {
-          //   return (a = pieces.bq[1][0][j]);
+         
+        // PAWN
         } else if (i === 4) {
           return (a = pieces.wp[1][0][j]);
+
         } else if (i === 5) {
           return (a = pieces.wp[0][0][j]);
 

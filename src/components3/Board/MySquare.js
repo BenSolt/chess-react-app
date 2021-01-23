@@ -104,17 +104,19 @@ function MySquare(props) {
       console.log("index Moved Too:",props.i)
 
     
-      if(props.i === 0 && props.turn === "White" && pieces.w[1][0][props.j]) {       
+      // if(props.i === 0 && props.turn === "White" && pieces.w[1][0][props.j]) {  
+      if(props.i === 2 && props.turn === "White" && pieces.w[1][0][props.j]) {       
         console.log('create Q White')
         console.log('pieces:', pieces.w[1][0][props.j])
         console.log('piece Q:',pieces.wq[0][0][props.j])
         console.log('element:', props.element)
-        props.setAddW(props.addW + 1); 
+        props.setAddW2(props.addW2 + 1); 
       }
 
-      if(props.i === 5 && props.turn !== "White"){
+      // if(props.i === 5 && props.turn !== "White"){
+      if(props.i === 3 && props.turn !== "White"){
         console.log('create Q Black')
-        props.setAddB(props.addB + 1);
+        props.setAddB2(props.addB2 + 1);
       }
     }
 
