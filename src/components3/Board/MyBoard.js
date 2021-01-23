@@ -6,8 +6,8 @@ import { piece } from "./img/pieces";
 
 function MyBoard(props) {
 
-  const [addW, setAddW] = useState(0);
-  const [addB, setAddB] = useState(0);
+  const [addW2, setAddW2] = useState(0);
+  const [addB2, setAddB2] = useState(0);
 
   var playboard2 = [
     0, 0, 0, 0, 0, 0,
@@ -32,11 +32,12 @@ function MyBoard(props) {
       return e.map((a, j) => {
         if (i === 0) {
           return (a = pieces.bp[0][0][j]);
-        // } else if (i === 1) {
-        //   return (a = pieces.bp[1][0][j]);
-
-        // } else if (i === 4) {
-        //   return (a = pieces.wp[1][0][j]);
+        } else if (i === 1) {
+          return (a = pieces.bp[1][0][j]);
+          // } else if (i === 2) {
+          //   return (a = pieces.bq[1][0][j]);
+        } else if (i === 4) {
+          return (a = pieces.wp[1][0][j]);
         } else if (i === 5) {
           return (a = pieces.wp[0][0][j]);
 
@@ -46,30 +47,22 @@ function MyBoard(props) {
     })
   );
 
-  ///////////////////////////////////////////////////
-  ///////////////////////////////////////////////////
-
-
-  const [createQueen, setCreateQueen] = useState(
-    playboard2.fill(playboard2.fill("")).map((e, i) => {
-      return e.map((a, j) => { 
-        if (i === 4) {
-          return (a = pieces.wq[1][0][j]);
-        } 
-      })}
-    )
-    )
-    
-    
-  
-  
-
 
   const initial = playboard2.fill(playboard2.fill("")).map((e, i) => {
     return e.map((a, j) => {
       return "o";
     });
   });
+
+
+  const test = playboard2.fill(playboard2.fill("")).map((e, i) => {
+    return e.map((a, j) => {
+      // return "x";
+      return (a = pieces.wq[1][0][j]);
+    });
+  });
+
+
 
 
   return (
@@ -106,13 +99,10 @@ function MyBoard(props) {
                     turn={turn}
                     setTurn={setTurn}
 
-                    addW={addW}
-                    setAddW={setAddW}
-                    addB={addB}
-                    setAddB={setAddB}
-
-                    createQueen={createQueen}
-                    setCreateQueen={setCreateQueen}
+                    addW2={addW2}
+                    setAddW2={setAddW2}
+                    addB2={addB2}
+                    setAddB2={setAddB2}
 
                   />
                 );
@@ -122,9 +112,8 @@ function MyBoard(props) {
         })}
       </div>
 
-      <h1 className='text'>{turn[0].toUpperCase() + turn.substr(1)}</h1>
-      <h1 className='text'>White: {addW}</h1>
-      <h1 className='text'>Black: {addB}</h1>
+      <h1 className='text'>White: {addW2}</h1>
+      <h1 className='text'>Black: {addB2}</h1>
     </div>
   );
 };

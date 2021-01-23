@@ -104,7 +104,7 @@ function MySquare(props) {
       console.log("index Moved Too:",props.i)
 
     
-      if(props.i === 0 && props.turn === "White" && pieces.w[1][0][props.j]) {        
+      if(props.i === 0 && props.turn === "White" && pieces.w[1][0][props.j]) {       
         console.log('create Q White')
         console.log('pieces:', pieces.w[1][0][props.j])
         console.log('piece Q:',pieces.wq[0][0][props.j])
