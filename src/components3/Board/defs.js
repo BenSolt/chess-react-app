@@ -4,7 +4,7 @@ export const pieces = {
 
     bq: [["qqqqqqqq"], ["q"]],
     wq: [["QQQQQQQQ"], ["Q"]],
-    bp: [["v"],["pvp"]],
-    wp: [["V"],["PVP"]]
+    bp: [["vvvxxx"],["pppxxx"]],
+    wp: [["XXXVVV"],["XXXPPP"]]
   };
   

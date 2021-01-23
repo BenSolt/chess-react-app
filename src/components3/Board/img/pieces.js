@@ -13,6 +13,8 @@ export const piece = [
     { id: "bq", src: "./img/ChessQueen.png" },
 
     {id: "bv", src: "./img/ChessUnit.png"},
-    {id: "WV", src: "./img/ChessUnit_W.png"}
+    {id: "WV", src: "./img/ChessUnit_W.png"},
+    {id: "bx", src: "./img/ChessRock.png"},
+    {id: "WX", src: "./img/ChessRock.png"},
   ];
   

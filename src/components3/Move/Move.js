@@ -5,7 +5,8 @@ import { Bishop } from "./Components/Bishop";
 import { Queen } from "./Components/Queen";
 import { King } from "./Components/King";
 
-import {AA} from "./Components/AA";
+import {PawnUp} from "./Components/APawnUp";
+import {Rock} from "./Components/Rock";
 
 export const Move = (e, i, j, temp, board) => {
   if (e[0] === "n" || e[0] === "N") {
@@ -22,6 +23,10 @@ export const Move = (e, i, j, temp, board) => {
     return King(e, i, j, temp, board);
 
   } else if (e[0] === "v" || e[0] === "V") {
-    return AA(e, i, j, temp, board);
+    return PawnUp(e, i, j, temp, board);
+    
+  }else if (e[0] === "x" || e[0] === "X") {
+    return Rock(e, i, j, temp, board);
   }
+  
 };
